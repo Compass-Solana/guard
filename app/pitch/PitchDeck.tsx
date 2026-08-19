@@ -68,7 +68,6 @@ const ACCENT = "#B08A4E";
 const GOOD = "#17453A";
 const WARN = "#B08A4E";
 const BAD = "#A8443A";
-const MUTED = "#6B7280";
 
 function slideStart(index: number) {
 	return index * SLIDE_STEP;
@@ -414,11 +413,12 @@ function SolutionSlide() {
 
 function IntegrationSlide() {
 	const frame = useCurrentFrame();
-	const lines = [
-		{ text: "$ compass run --agent my-agent", color: "#F5F7FB" },
-		{ text: "✓ upstream MCP discovered · 14 tools", color: MUTED },
-		{ text: "✓ sensitive calls wrapped with policy", color: MUTED },
-		{ text: "✓ audit stream live", color: GOOD },
+	const usageSteps = [
+		{ label: "Connect", detail: "MCP server + wallet", icon: Route },
+		{ label: "Inspect", detail: "intent · context · effects", icon: Eye },
+		{ label: "Guard", detail: "permit · escalate · deny", icon: ShieldCheck },
+		{ label: "Execute", detail: "sign only what passed", icon: CircleDollarSign },
+		{ label: "Receipt", detail: "input · verdict · outcome", icon: FileCheck2 },
 	];
 	return (
 		<SlideShell index={5}>
@@ -433,23 +433,23 @@ function IntegrationSlide() {
 						))}
 					</div>
 				</div>
-				<div className={styles.terminal}>
-					<div className={styles.terminalBar}><i /><i /><i /><span>compass · zsh</span></div>
-					<div className={styles.terminalBody}>
-						{lines.map((line, index) => {
-							const start = 12 + index * 16;
-							const characters = Math.floor(interpolate(frame, [start, start + 14], [0, line.text.length], {
-								extrapolateLeft: "clamp",
-								extrapolateRight: "clamp",
-								easing: Easing.bezier(0.16, 1, 0.3, 1),
-							}));
+				<div className={styles.usageFlowPanel}>
+					<div className={styles.usageFlowCommand}>$ compass run --agent my-agent</div>
+					<div className={styles.usageFlowCaption}>Five steps. One guarded execution path.</div>
+					<div className={styles.usageFlow}>
+						{usageSteps.map((step, index) => {
+							const Icon = step.icon;
+							const delay = 28 + index * 10;
 							return (
-								<div key={line.text} style={{ color: line.color, minHeight: "43px" }}>
-									{line.text.slice(0, characters)}
+								<div className={styles.usageFlowItem} key={step.label}>
+									<div className={styles.usageFlowNode} style={{ opacity: appear(frame, delay, 14), translate: `0 ${interpolate(frame, [delay, delay + 14], [12, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.bezier(0.16, 1, 0.3, 1) })}px` }}>
+										<div className={styles.usageFlowIcon}><Icon size={20} /></div>
+										<div><strong>{step.label}</strong><span>{step.detail}</span></div>
+									</div>
+									{index < usageSteps.length - 1 && <div className={styles.usageFlowConnector} style={{ opacity: appear(frame, delay + 7, 12) }} />}
 								</div>
 							);
 						})}
-						<div className={styles.terminalCursor} style={{ opacity: Math.floor(frame / 12) % 2 === 0 ? 1 : 0 }} />
 					</div>
 				</div>
 			</div>
