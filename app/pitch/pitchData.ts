@@ -1,4 +1,5 @@
 import type {
+	CompetitionFeature,
 	GtmStage,
 	LandscapeRow,
 	MarketEvidence,
@@ -59,6 +60,39 @@ export const LANDSCAPE_ROWS: LandscapeRow[] = [
 		outcome: "Walled garden",
 	},
 ];
+
+export const COMPETITION_FEATURES = [
+	{
+		label: "Intent / mandate check",
+		detail: "Was this action authorized for this agent?",
+		values: { AmberTrace: "no", Kredit: "no", Atbash: "no", "Google AP2": "no", "AWS Cedar": "no", Compass: "yes" },
+	},
+	{
+		label: "$0 authority changes",
+		detail: "Catches permission changes with no transfer amount.",
+		values: { AmberTrace: "no", Kredit: "no", Atbash: "no", "Google AP2": "no", "AWS Cedar": "no", Compass: "yes" },
+	},
+	{
+		label: "Inbound + outbound context",
+		detail: "Inspects prompts, tool results, calls and effects.",
+		values: { AmberTrace: "partial", Kredit: "no", Atbash: "partial", "Google AP2": "no", "AWS Cedar": "no", Compass: "yes" },
+	},
+	{
+		label: "Pre-signing enforcement",
+		detail: "Decides before the signer makes the action irreversible.",
+		values: { AmberTrace: "partial", Kredit: "partial", Atbash: "partial", "Google AP2": "partial", "AWS Cedar": "yes", Compass: "yes" },
+	},
+	{
+		label: "Agent-agnostic adapters",
+		detail: "Works across MCP tools, signers and SDKs.",
+		values: { AmberTrace: "no", Kredit: "no", Atbash: "no", "Google AP2": "no", "AWS Cedar": "no", Compass: "yes" },
+	},
+	{
+		label: "Audit receipts",
+		detail: "Records every input, action and verdict.",
+		values: { AmberTrace: "no", Kredit: "no", Atbash: "no", "Google AP2": "no", "AWS Cedar": "no", Compass: "yes" },
+	},
+] satisfies CompetitionFeature[];
 
 export const MARKET_SEGMENTS: MarketSegment[] = [
 	{

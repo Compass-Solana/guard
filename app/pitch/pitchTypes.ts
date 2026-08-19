@@ -13,6 +13,12 @@ export type LandscapeRow = {
 	outcome: string;
 };
 
+export type CompetitionFeature = {
+	label: string;
+	detail: string;
+	values: Record<string, "yes" | "partial" | "no">;
+};
+
 export type MarketSegment = {
 	name: string;
 	value: number;

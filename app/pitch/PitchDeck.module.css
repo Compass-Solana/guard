@@ -1246,6 +1246,124 @@
 
 /* Landscape */
 
+.competitionMatrix {
+	display: flex;
+	flex-direction: column;
+	margin-top: 29px;
+	border: 1px solid rgba(13, 31, 23, 0.15);
+	border-radius: 14px;
+	overflow: hidden;
+	background: #fbf8f0;
+	box-shadow: 0 10px 28px rgba(13, 31, 23, 0.055);
+}
+
+.competitionHeader,
+.competitionRow {
+	display: grid;
+	grid-template-columns: minmax(300px, 2.1fr) repeat(6, minmax(98px, 1fr));
+	align-items: stretch;
+}
+
+.competitionHeader {
+	min-height: 52px;
+	background: #0d2a20;
+	color: #fbf8f0;
+}
+
+.competitionFeatureHead,
+.competitionColumnHead {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 10px;
+	font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	line-height: 1.15;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.competitionFeatureHead {
+	justify-content: flex-start;
+	padding-left: 18px;
+	color: #d8c9ab;
+	text-align: left;
+}
+
+.competitionCompassHead {
+	background: #b08a4e;
+	color: #0d2a20;
+}
+
+.competitionRow {
+	min-height: 66px;
+	border-top: 1px solid rgba(13, 31, 23, 0.1);
+}
+
+.competitionFeature {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 5px;
+	padding: 10px 16px;
+}
+
+.competitionFeature strong {
+	font-size: 15px;
+	line-height: 1.1;
+}
+
+.competitionFeature span {
+	color: #6b7280;
+	font-size: 11px;
+	line-height: 1.2;
+}
+
+.competitionCell {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-left: 1px solid rgba(13, 31, 23, 0.08);
+	font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+	font-size: 22px;
+	font-weight: 800;
+}
+
+.competitionCompassCell {
+	background: rgba(176, 138, 78, 0.11);
+}
+
+.competitionCell_yes {
+	color: #17453a;
+}
+
+.competitionCell_partial {
+	color: #b08a4e;
+}
+
+.competitionCell_no {
+	color: #a8443a;
+	opacity: 0.58;
+}
+
+.competitionLegend {
+	display: flex;
+	gap: 22px;
+	margin-top: 13px;
+	color: #6b7280;
+	font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+	font-size: 10px;
+	letter-spacing: 0.04em;
+}
+
+.competitionLegend b {
+	margin-right: 4px;
+	color: #17453a;
+	font-size: 14px;
+}
+
 .landscapeTable {
 	display: flex;
 	flex-direction: column;

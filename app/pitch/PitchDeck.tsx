@@ -36,7 +36,7 @@ import {
 } from "remotion";
 import {
 	GTM_STAGES,
-	LANDSCAPE_ROWS,
+	COMPETITION_FEATURES,
 	MARKET_EVIDENCE,
 	MARKET_SEGMENTS,
 	PITCH_SLIDES,
@@ -459,27 +459,33 @@ function IntegrationSlide() {
 
 function LandscapeSlide() {
 	const frame = useCurrentFrame();
+	const columns = ["AmberTrace", "Kredit", "Atbash", "Google AP2", "AWS Cedar", "Compass"];
 	return (
 		<SlideShell index={6}>
 			<Reveal delay={2}><Eyebrow>The landscape</Eyebrow></Reveal>
 			<Reveal delay={8}><h2 className={styles.headline}>Others guard a slice. Compass enforces the full mandate.</h2></Reveal>
-			<div className={styles.landscapeTable}>
-				{LANDSCAPE_ROWS.map((row, index) => {
-					const delay = 18 + index * 8;
+			<div className={styles.competitionMatrix}>
+				<div className={styles.competitionHeader}>
+					<div className={styles.competitionFeatureHead}>Capability</div>
+					{columns.map((column) => <div className={`${styles.competitionColumnHead} ${column === "Compass" ? styles.competitionCompassHead : ""}`} key={column}>{column}</div>)}
+				</div>
+				{COMPETITION_FEATURES.map((feature, index) => {
+					const delay = 18 + index * 7;
 					return (
-						<div className={styles.landscapeRow} key={row.name} style={{ opacity: appear(frame, delay, 16), translate: `0 ${interpolate(frame, [delay, delay + 16], [18, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}px` }}>
-							<div><strong>{row.name}</strong><span>{row.category}</span></div>
-							<p>{row.gap}</p>
-							<span className={styles.gapPill}>{row.outcome}</span>
+						<div className={styles.competitionRow} key={feature.label} style={{ opacity: appear(frame, delay, 16), translate: `0 ${interpolate(frame, [delay, delay + 16], [14, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}px` }}>
+							<div className={styles.competitionFeature}>
+								<strong>{feature.label}</strong>
+								<span>{feature.detail}</span>
+							</div>
+							{columns.map((column) => {
+								const status = feature.values[column];
+								return <div className={`${styles.competitionCell} ${column === "Compass" ? styles.competitionCompassCell : ""} ${styles[`competitionCell_${status}`]}`} key={column}>{status === "yes" ? "✓" : status === "partial" ? "◐" : "—"}</div>;
+							})}
 						</div>
 					);
 				})}
-				<div className={`${styles.landscapeRow} ${styles.landscapeCompass}`} style={{ opacity: appear(frame, 64, 18) }}>
-					<div><strong>Compass</strong><span>Intent enforcement</span></div>
-					<p>Evaluates the proposed action against the owner&apos;s mandate before signing.</p>
-					<span className={styles.winPill}>full checkpoint</span>
-				</div>
 			</div>
+			<div className={styles.competitionLegend}><span><b>✓</b> native capability</span><span><b>◐</b> partial / scoped</span><span><b>—</b> not the primitive</span></div>
 		</SlideShell>
 	);
 }
