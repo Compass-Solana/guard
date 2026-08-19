@@ -516,7 +516,7 @@ function OpportunitySlide() {
 						))}
 					</div>
 					<div className={styles.marketSource} style={{ opacity: appear(frame, 62, 16) }}>
-						Sources: Juniper Research · x402scan · Paddock · Solana · Virtuals ACP, 2026.
+							Sources: Virtuals Protocol dashboard · x402scan · 30-day snapshots, Aug 2026.
 					</div>
 				</div>
 					<div className={`${styles.chartPanel} ${styles.marketEvidencePanel}`}>
@@ -546,14 +546,14 @@ function OpportunitySlide() {
 						</div>
 						<div className={styles.marketCapture} style={{ opacity: appear(frame, 64, 18) }}>
 							<div className={styles.marketCaptureLabels}>
-								<span>Compass share of Solana beachhead</span>
-								<strong>5.4%</strong>
+									<span>Compass share of annualized x402 proxy</span>
+									<strong>3.6%</strong>
 							</div>
 							<div className={styles.marketCaptureTrack}>
 								<div
 									className={styles.marketCaptureFill}
 									style={{
-										width: `${interpolate(frame, [66, 94], [0, 5.4], {
+											width: `${interpolate(frame, [66, 94], [0, 3.6], {
 											extrapolateLeft: "clamp",
 											extrapolateRight: "clamp",
 											easing: Easing.bezier(0.16, 1, 0.3, 1),
@@ -561,7 +561,7 @@ function OpportunitySlide() {
 									}}
 								/>
 							</div>
-							<small>$300K of an implied ~$5.6M annual Solana run rate</small>
+								<small>$300K of an implied ~$8.3M annual x402 volume proxy</small>
 						</div>
 					</div>
 			</div>
@@ -646,7 +646,7 @@ function TractionSlide() {
 							</div>
 						);
 					})}
-					<div className={styles.talksSource}>Public scale metrics; conversation status is Compass pipeline.</div>
+						<div className={styles.talksSource}>Virtuals scale metrics are public; Bankr aggregate is not disclosed. Conversation status is Compass pipeline.</div>
 				</div>
 			</div>
 		</SlideShell>
@@ -668,7 +668,7 @@ function BusinessSlide() {
 							<div className={styles.priceVolume}>{tier.volume}</div>
 							<div className={styles.priceFee}>{tier.platformFee}</div>
 							<div className={styles.priceBps}>+ {tier.bps} protected volume</div>
-							<div className={styles.priceArr}>{tier.arr}</div>
+								{tier.arr ? <div className={styles.priceArr}>{tier.arr}</div> : null}
 						</div>
 					);
 				})}

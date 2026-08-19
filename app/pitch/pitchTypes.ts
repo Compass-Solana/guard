@@ -56,7 +56,7 @@ export type PricingTier = {
 	volume: string;
 	platformFee: string;
 	bps: string;
-	arr: string;
+	arr?: string;
 	featured?: boolean;
 };
 

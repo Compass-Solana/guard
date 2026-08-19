@@ -97,42 +97,42 @@ export const COMPETITION_FEATURES = [
 export const MARKET_SEGMENTS: MarketSegment[] = [
 	{
 		name: "TAM",
-		value: 8000,
-		displayValue: "$8B",
-		description: "2026 global agentic commerce transaction value",
+		value: 13800,
+		displayValue: "$13.8B",
+		description: "Virtuals Protocol 30-day trading volume · agent economy proxy",
 	},
 	{
 		name: "SAM",
-		value: 8,
-		displayValue: "~$8M",
-		description: "Current annualized x402 settlement · Base + Solana",
+		value: 8.3,
+		displayValue: "~$8.3M",
+		description: "x402 $694.6K / 30D × 12 · raw settlement proxy",
 	},
 	{
 		name: "SOM",
 		value: 0.3,
 		displayValue: "$300K",
-		description: "Year-2 protected run rate · 200 Solana agents",
+		description: "Compass 12-month protected-volume target · 200 agents",
 	},
 ];
 
 export const MARKET_EVIDENCE: MarketEvidence[] = [
 	{
 		label: "SAM run rate",
-		value: "~$8M",
-		detail: "$717K / 30D × 12",
-		note: "Observed x402 settlement · Base + Solana",
-	},
-	{
-		label: "Solana beachhead",
-		value: "~$5.6M",
-		detail: "70% of x402 monthly volume",
-		note: "Inferred annualized share",
+		value: "~$8.3M",
+		detail: "$694.6K / 30D × 12",
+		note: "x402scan global raw volume snapshot",
 	},
 	{
 		label: "Compass SOM",
 		value: "$300K",
 		detail: "200 agents × $125 / mo × 12",
-		note: "~5.4% of Solana run rate",
+		note: "3.6% of annualized x402 proxy",
+	},
+	{
+		label: "Funds safeguarded",
+		value: "$10K",
+		detail: "12-month validation target",
+		note: "Separate from protected transaction volume",
 		featured: true,
 	},
 ];
@@ -160,20 +160,20 @@ export const GTM_STAGES: GtmStage[] = [
 export const TRACTION_TALKS: TractionTalk[] = [
 	{
 		name: "Virtuals Protocol",
-		metric: "$13.8B+",
-		metricLabel: "ecosystem trading volume",
-		adoption: "50K+",
-		adoptionLabel: "agents launched",
-		metricDate: "platform-reported · 2026",
+		metric: "$13.8B",
+		metricLabel: "30-day trading volume",
+		adoption: "40K+",
+		adoptionLabel: "agents / projects",
+		metricDate: "official dashboard snapshot · Aug 2026",
 		color: "#0D1F17",
 	},
 	{
 		name: "Bankr",
-		metric: "$7.2M",
-		metricLabel: "managed across agent wallets",
-		adoption: "≈30K",
-		adoptionLabel: "agent wallets created",
-		metricDate: "public adoption proxy · latest reported count",
+		metric: "API",
+		metricLabel: "agent + wallet infrastructure",
+		adoption: "N/D",
+		adoptionLabel: "public aggregate not disclosed",
+		metricDate: "public docs; pipeline status is Compass-reported",
 		color: "#B08A4E",
 	},
 ];
@@ -184,21 +184,18 @@ export const PRICING_TIERS: PricingTier[] = [
 		volume: "$0–5M / yr",
 		platformFee: "$2K / mo",
 		bps: "15 bps",
-		arr: "~$27K ARR",
 	},
 	{
 		name: "Growth",
 		volume: "$5–25M / yr",
 		platformFee: "$5K / mo",
 		bps: "10 bps",
-		arr: "~$82K ARR",
 	},
 	{
 		name: "Scale",
 		volume: "$25M+ / yr",
 		platformFee: "$7K / mo",
 		bps: "6 bps",
-		arr: "~$156K ARR",
 		featured: true,
 	},
 ];
