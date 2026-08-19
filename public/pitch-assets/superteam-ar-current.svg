@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 1040" role="img" aria-label="Superteam Argentina">
+  <circle cx="520" cy="520" r="520" fill="#0B0B0B"/>
+  <g transform="translate(520,520) scale(0.752) translate(-522,-459)" fill="#fff">
+    <path fill="none" stroke="#fff" stroke-width="236" stroke-linecap="round" stroke-linejoin="round" d="M430 250 C 372 145 188 138 156 262 C 128 360 236 414 318 454 C 398 492 466 540 452 642 C 432 752 236 760 162 652"/>
+    <rect x="576" y="40" width="206" height="838"/>
+    <path d="M782 40 L820 40 A186 186 0 0 1 1006 226 L1006 300 L782 300 Z"/>
+  </g>
+</svg>

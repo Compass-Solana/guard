@@ -6,12 +6,9 @@ export const metadata: Metadata = {
   title: 'Compass · The execution firewall for Solana AI agents',
   description: 'Compass sits between AI agents, tools and wallets to decode, simulate, approve and audit critical actions before they can be signed.',
   icons: {
-    icon: [
-      { url: '/compass-icon-32.png', type: 'image/png', sizes: '32x32' },
-      { url: '/compass-icon.png', type: 'image/png', sizes: '256x256' },
-    ],
-    shortcut: '/compass-icon.png',
-    apple: '/compass-icon.png',
+    icon: [{ url: '/compass-tab-logo.png', type: 'image/png', sizes: '520x520' }],
+    shortcut: '/compass-tab-logo.png',
+    apple: '/compass-brand-logo.png',
   },
 };
 
