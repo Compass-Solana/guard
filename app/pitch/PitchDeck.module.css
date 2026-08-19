@@ -1260,7 +1260,7 @@
 .competitionHeader,
 .competitionRow {
 	display: grid;
-	grid-template-columns: minmax(300px, 2.1fr) repeat(6, minmax(98px, 1fr));
+	grid-template-columns: minmax(300px, 2.1fr) repeat(3, minmax(170px, 1fr));
 	align-items: stretch;
 }
 
@@ -1273,6 +1273,7 @@
 .competitionFeatureHead,
 .competitionColumnHead {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	padding: 12px 10px;
@@ -1283,6 +1284,25 @@
 	line-height: 1.15;
 	text-align: center;
 	text-transform: uppercase;
+}
+
+.competitionColumnHead strong {
+	font-size: 11px;
+	letter-spacing: 0.05em;
+}
+
+.competitionColumnHead small {
+	color: #d8c9ab;
+	font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+	font-size: 8px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	line-height: 1.15;
+	text-transform: none;
+}
+
+.competitionCompassHead small {
+	color: #0d2a20;
 }
 
 .competitionFeatureHead {

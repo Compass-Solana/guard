@@ -459,7 +459,17 @@ function IntegrationSlide() {
 
 function LandscapeSlide() {
 	const frame = useCurrentFrame();
-	const columns = ["AmberTrace", "Kredit", "Atbash", "Google AP2", "AWS Cedar", "Compass"];
+	const columns = [
+		{ label: "Policy & scoring", members: ["AmberTrace", "Kredit", "Atbash"] },
+		{ label: "Mandates & infra", members: ["Google AP2", "AWS Cedar"] },
+		{ label: "Compass", members: ["Compass"] },
+	];
+	const groupedStatus = (values: Record<string, "yes" | "partial" | "no">, members: string[]) => {
+		const statuses = members.map((member) => values[member]);
+		if (statuses.every((status) => status === "yes")) return "yes";
+		if (statuses.some((status) => status === "yes" || status === "partial")) return "partial";
+		return "no";
+	};
 	return (
 		<SlideShell index={6}>
 			<Reveal delay={2}><Eyebrow>The landscape</Eyebrow></Reveal>
@@ -467,7 +477,7 @@ function LandscapeSlide() {
 			<div className={styles.competitionMatrix}>
 				<div className={styles.competitionHeader}>
 					<div className={styles.competitionFeatureHead}>Capability</div>
-					{columns.map((column) => <div className={`${styles.competitionColumnHead} ${column === "Compass" ? styles.competitionCompassHead : ""}`} key={column}>{column}</div>)}
+					{columns.map((column) => <div className={`${styles.competitionColumnHead} ${column.label === "Compass" ? styles.competitionCompassHead : ""}`} key={column.label}><strong>{column.label}</strong><small>{column.members.join(" · ")}</small></div>)}
 				</div>
 				{COMPETITION_FEATURES.map((feature, index) => {
 					const delay = 18 + index * 7;
@@ -478,8 +488,8 @@ function LandscapeSlide() {
 								<span>{feature.detail}</span>
 							</div>
 							{columns.map((column) => {
-								const status = feature.values[column];
-								return <div className={`${styles.competitionCell} ${column === "Compass" ? styles.competitionCompassCell : ""} ${styles[`competitionCell_${status}`]}`} key={column}>{status === "yes" ? "✓" : status === "partial" ? "◐" : "—"}</div>;
+								const status = groupedStatus(feature.values, column.members);
+								return <div className={`${styles.competitionCell} ${column.label === "Compass" ? styles.competitionCompassCell : ""} ${styles[`competitionCell_${status}`]}`} key={column.label}>{status === "yes" ? "✓" : status === "partial" ? "◐" : "—"}</div>;
 							})}
 						</div>
 					);
