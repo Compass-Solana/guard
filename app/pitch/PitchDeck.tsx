@@ -414,11 +414,11 @@ function SolutionSlide() {
 function IntegrationSlide() {
 	const frame = useCurrentFrame();
 	const usageSteps = [
-		{ label: "Connect", detail: "MCP server + wallet", icon: Route },
-		{ label: "Inspect", detail: "intent · context · effects", icon: Eye },
-		{ label: "Guard", detail: "permit · escalate · deny", icon: ShieldCheck },
-		{ label: "Execute", detail: "sign only what passed", icon: CircleDollarSign },
-		{ label: "Receipt", detail: "input · verdict · outcome", icon: FileCheck2 },
+		{ label: "Use CLI", detail: "compass init", icon: SquareTerminal },
+		{ label: "Enter Compass", detail: "compass login", icon: Route },
+		{ label: "Set permissions", detail: "compass policy set", icon: ShieldCheck },
+		{ label: "Run agent", detail: "compass run", icon: CircleDollarSign },
+		{ label: "Done", detail: "guardrails active", icon: FileCheck2 },
 	];
 	return (
 		<SlideShell index={5}>
@@ -434,8 +434,8 @@ function IntegrationSlide() {
 					</div>
 				</div>
 				<div className={styles.usageFlowPanel}>
-					<div className={styles.usageFlowCommand}>$ compass run --agent my-agent</div>
-					<div className={styles.usageFlowCaption}>Five steps. One guarded execution path.</div>
+					<div className={styles.usageFlowCommand}>$ compass</div>
+					<div className={styles.usageFlowCaption}>Install once. Configure once. Run guarded.</div>
 					<div className={styles.usageFlow}>
 						{usageSteps.map((step, index) => {
 							const Icon = step.icon;
